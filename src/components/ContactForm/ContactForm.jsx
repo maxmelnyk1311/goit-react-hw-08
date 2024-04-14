@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from "yup";
 
-import { addContact } from '../../redux/contactsOps';
+import { addContact } from '../../redux/contacts/contactsOps';
 
 import css from './ContactForm.module.css';
 
@@ -31,28 +31,31 @@ export default function ContactForm() {
 	};
 
     return (
-        <Formik 
-            initialValues={initialValues} 
-            onSubmit={handleSubmit}
-            validationSchema={validationSchema}
-        >
-			<Form className={css.form}>
-                <label htmlFor={nameFieldId}>Name</label>
-                <Field 
-                    type="text" 
-                    name="name" 
-                    id={nameFieldId}
-                />
-                <ErrorMessage name="name" as="span" />
-                <label htmlFor={numberFieldId}>Number</label>
-                <Field 
-                    type="text" 
-                    name="number"
-                    id={numberFieldId}
-                />
-                <ErrorMessage name="number" as="span" />
-                <button className={css.submitBtn} type="submit">Add contact</button>
-			</Form>
-        </Formik>
+        <div className={css.contactFormWrp}>
+            <h1>Phonebook</h1>
+            <Formik 
+                initialValues={initialValues} 
+                onSubmit={handleSubmit}
+                validationSchema={validationSchema}
+            >   
+                <Form className={css.form}>
+                    <label htmlFor={nameFieldId}>Name</label>
+                    <Field 
+                        type="text" 
+                        name="name" 
+                        id={nameFieldId}
+                    />
+                    <ErrorMessage name="name" as="span" />
+                    <label htmlFor={numberFieldId}>Number</label>
+                    <Field 
+                        type="text" 
+                        name="number"
+                        id={numberFieldId}
+                    />
+                    <ErrorMessage name="number" as="span" />
+                    <button className={css.submitBtn} type="submit">Add contact</button>
+                </Form>
+            </Formik>
+        </div>
     )
 }
