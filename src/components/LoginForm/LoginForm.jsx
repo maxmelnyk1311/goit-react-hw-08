@@ -1,7 +1,7 @@
 import {Formik, Form, Field} from "formik";
 import { useId } from "react";
 import {Link} from "react-router-dom";
-import { logIn } from "../../redux/auth/authOps.js";
+import { logIn } from "../../redux/auth/operations.js";
 import { useDispatch } from "react-redux";
 
 import css from "./LoginForm.module.css";
